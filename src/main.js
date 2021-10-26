@@ -9,6 +9,10 @@ import {
 import {
     createSquares
 } from './js/createSquare';
+import {
+    addPoints,
+    removeLife
+} from './js/points';
 
 const timeHolder = document.querySelector('.header__timer-counting');
 const buttonStart = document.querySelector('.navigation__start');
@@ -27,10 +31,12 @@ buttonStart.addEventListener('click', () => {
             clearInterval(timeToRemove)
             el.classList.remove('game-place__square--active');
             drawSquare();
+            addPoints();
         } else {
             clearInterval(timeToRemove)
             squares.forEach(el => el.classList.remove('game-place__square--active'))
             console.log('zabieram życie')
+            removeLife();
             drawSquare();
         }
     }));
