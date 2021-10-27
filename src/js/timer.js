@@ -9,16 +9,19 @@ function timerStart(element) {
             number++;
             element.textContent = (number / 100).toFixed(0)
             if (number === 6000) {
-                timerStop();
+                timerStop(element);
             }
         }, 10)
         flag = false;
     }
 }
 
-function timerStop() {
+function timerStop(element) {
+
     flag = true;
     clearInterval(timerCount);
+    number = 0;
+    element.textContent = number
 }
 
 
