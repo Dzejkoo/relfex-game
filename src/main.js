@@ -18,8 +18,6 @@ import {
 
 
 
-
-
 const timeHolder = document.querySelector('.header__timer-counting');
 const buttonStart = document.querySelector('.navigation__start');
 let numberOfSqures = 25;
@@ -27,14 +25,10 @@ createSquares(numberOfSqures);
 const squares = [...document.querySelectorAll('.game-place__square')];
 
 
-
-
-
-
-
 function game() {
-    squares.forEach((el) => el.addEventListener('click', (e) => {
-        let ifIncludes = e.target.classList.includes('game-place__square--active');
+    squares.forEach(el => el.addEventListener('click', (e) => {
+        let ifIncludes = e.target.className.includes('game-place__square--active');
+        console.log(e.target.className)
         if (ifIncludes) {
             clearInterval(timeToRemove)
             el.classList.remove('game-place__square--active');
@@ -43,20 +37,23 @@ function game() {
         } else {
             clearInterval(timeToRemove)
             squares.forEach(el => el.classList.remove('game-place__square--active'))
-            removeLife(squares);
+            removeLife();
             drawSquare();
             if (endGame) {
+                console.log('jestem')
                 timerStop(timeHolder);
                 squares.forEach(el => el.classList.remove('game-place__square--active'))
-                clearInterval(timeToRemove)
+                clearInterval(timeToRemove);
             }
+
         }
+
     }))
 }
 
 buttonStart.addEventListener('click', () => {
-    game();
-    console.log('jestem')
-    drawSquare()
+    drawSquare();
     timerStart(timeHolder);
 })
+
+game();

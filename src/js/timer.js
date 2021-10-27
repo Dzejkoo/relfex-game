@@ -17,7 +17,6 @@ function timerStart(element) {
 }
 
 function timerStop(element) {
-
     flag = true;
     clearInterval(timerCount);
     number = 0;
