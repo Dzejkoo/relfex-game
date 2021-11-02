@@ -1,26 +1,27 @@
 let timerCount;
 let number = 0;
 let flag = true
+const timeHolder = document.querySelector('.header__timer-counting');
 
 
-function timerStart(element) {
+function timerStart() {
     if (flag) {
         timerCount = setInterval(() => {
             number++;
-            element.textContent = (number / 100).toFixed(0)
+            timeHolder.textContent = (number / 100).toFixed(0)
             if (number === 6000) {
-                timerStop(element);
+                timerStop();
             }
         }, 10)
         flag = false;
     }
 }
 
-function timerStop(element) {
+function timerStop() {
     flag = true;
     clearInterval(timerCount);
     number = 0;
-    element.textContent = number
+    timeHolder.textContent = number
 }
 
 
