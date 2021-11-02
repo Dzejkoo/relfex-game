@@ -12,21 +12,18 @@ import {
 import {
     addPoints,
     removeLife,
+    reset
 } from './js/points';
 
-
-
-
 const buttonStart = document.querySelector('.navigation__start');
+const buttonReset = document.querySelector('.navigation__reset');
 let numberOfSqures = 25;
 createSquares(numberOfSqures);
 const squares = [...document.querySelectorAll('.game-place__square')];
 
-
 function game() {
     squares.forEach(el => el.addEventListener('click', (e) => {
         let ifIncludes = e.target.className.includes('game-place__square--active');
-        console.log(e.target.className)
         if (ifIncludes) {
             clearInterval(timeToRemove)
             el.classList.remove('game-place__square--active');
@@ -41,9 +38,15 @@ function game() {
     }))
 }
 
-buttonStart.addEventListener('click', () => {
-    drawSquare();
-    timerStart();
-})
+document.addEventListener('DOMContentLoaded', () => {
+    buttonStart.addEventListener('click', () => {
+        drawSquare();
+        timerStart();
+    })
 
-game();
+    buttonReset.addEventListener('click', () => {
+        reset(squares);
+    })
+
+    game();
+})

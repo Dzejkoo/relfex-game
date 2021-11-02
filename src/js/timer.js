@@ -3,7 +3,6 @@ let number = 0;
 let flag = true
 const timeHolder = document.querySelector('.header__timer-counting');
 
-
 function timerStart() {
     if (flag) {
         timerCount = setInterval(() => {
@@ -23,8 +22,6 @@ function timerStop() {
     number = 0;
     timeHolder.textContent = number
 }
-
-
 
 export {
     timerStart,

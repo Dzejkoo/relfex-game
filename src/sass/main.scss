@@ -1,10 +1,18 @@
 @import 'reset';
 
+:root {
+    font-size: 14px;
+
+    @media (max-width: 630px) {
+        font-size: 11.4px;
+    }
+
+}
+
 body {
     background-color: #a8a8a8;
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
-    margin: 0 auto;
 }
 
 .header {
@@ -13,7 +21,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: 20px;
+    font-size: 1.4rem;
 
     &__item {
         padding: 8px 15px;

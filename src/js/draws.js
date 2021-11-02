@@ -11,6 +11,7 @@ function removeSquare(squares, numberOfSquare) {
     timeToRemove = setTimeout(() => {
         squares[numberOfSquare].classList.remove('game-place__square--active');
         drawSquare()
+        alert('Co tak wolno! Szybciej!')
     }, 3000)
 }
 
